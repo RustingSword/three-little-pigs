@@ -1,0 +1,5 @@
+三只小猪 · 点一点的童话
+- 故事：《三只小猪》民间童话（公有领域），文字为改写。
+- 3D 角色与场景道具：Quaternius / Kenney CC0 glTF（见 assets/LICENSES.md）；房屋与地形为程序化生成。
+- 引擎：Three.js r186（MIT，见 lib/THREE_LICENSE.txt），含 examples/jsm GLTFLoader / SkeletonUtils / BufferGeometryUtils。
+- 旁白：Google Gemini TTS 生成（gemini-2.5-flash-preview-tts，音色 Sulafat）。

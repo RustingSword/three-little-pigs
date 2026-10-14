@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<link rel="icon" href="data:,">
+<title>三只小猪 · 点一点的童话</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;background:#87c8ef;font-family:"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;touch-action:none;user-select:none;-webkit-user-select:none}
+canvas{display:block}
+#story{position:fixed;left:50%;transform:translateX(-50%);bottom:max(14px,env(safe-area-inset-bottom));width:min(92vw,820px);background:rgba(255,253,240,.94);border-radius:26px;box-shadow:0 6px 0 #e8c77a;padding:16px 22px;box-sizing:border-box;font-size:clamp(20px,4.4vw,30px);line-height:1.5;color:#5a3a1a;text-align:center}
+#hint{display:block;margin-top:6px;font-size:.75em;color:#e06a3b;font-weight:bold}
+.btn{position:fixed;top:max(14px,env(safe-area-inset-top));width:clamp(56px,13vw,74px);height:clamp(56px,13vw,74px);border:none;border-radius:50%;font-size:clamp(26px,6vw,34px);background:#fff8e1;box-shadow:0 5px 0 #e8c77a;cursor:pointer;z-index:2}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 #e8c77a}
+#prev{left:14px}#next{right:14px}#replay{left:50%;transform:translateX(-50%)}#replay:active{transform:translate(-50%,4px)}
+#next.glow{animation:g 1s infinite alternate}@keyframes g{to{background:#ffd54f;transform:scale(1.1)}}
+#dots{position:fixed;top:clamp(78px,16vw,100px);left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2}
+#dots i{width:12px;height:12px;border-radius:50%;background:#fff;opacity:.6}#dots i.on{background:#ff8a65;opacity:1}
+#start{position:fixed;inset:0;background:linear-gradient(#7ec8f5,#c8e98a);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9;cursor:pointer}
+#start h1{font-size:clamp(44px,11vw,84px);color:#ff7043;margin:0;text-shadow:0 5px 0 #fff}
+#start p{font-size:clamp(22px,5vw,32px);color:#5a3a1a;animation:g2 .9s infinite alternate}@keyframes g2{to{transform:scale(1.08)}}
+#start .sub{font-size:clamp(14px,3.2vw,18px);color:#6d4c41;margin-top:8px;opacity:.85;animation:none}
+</style></head><body>
+<div id="start"><div style="font-size:90px">🐷🐷🐷</div><h1>三只小猪</h1><p>👆 点一点，开始讲故事</p><div class="sub" id="loadmsg">正在装进小森林…</div></div>
+<button class="btn" id="prev" aria-label="上一页">◀</button>
+<button class="btn" id="replay" aria-label="再听一遍">🔊</button>
+<button class="btn" id="next" aria-label="下一页">▶</button>
+<div id="dots"></div>
+<div id="story"><span id="text"></span><span id="hint"></span></div>
+<script type="importmap">{
+  "imports": {
+    "three": "./lib/three.module.min.js",
+    "three/addons/": "./lib/addons/"
+  }
+}</script>
+<script type="module" src="game.js"></script>
+</body></html>
